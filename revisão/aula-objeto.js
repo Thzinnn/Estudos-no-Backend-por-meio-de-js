@@ -1,7 +1,3 @@
-import express from 'express'
-import {PORT,HOST} from './config.js'
-const app = express()
-
 const endereco = {
     rua: 'Rua latissimo dorso',
     numero: 0
@@ -22,16 +18,10 @@ const user = {
     pets: [{nome: 'Marley', raca: 'Labrador'}, 'Gato', 'Peixe']
 }
 
-app.get('/', (req, res) => {
-  res.json(user)
-})
+delete user.prof
 
-app.get('/produto', (req, res) => {
-    res.json({nome: 'Clarisse', altura: '1,80', caracteristicas: 'Magerrima, Esquia', Mas: 'Tem uma ******'})
-  })
+user.idade = 18
+user.end.rua = 'Rua dos mortos'
+user.pets[0].nome = 'Mike'
 
-app.listen(PORT, () => {
-  console.log(`Server running on ${HOST}:${PORT}`)
-})
-
-
+console.log(user.pets[0].nome)
