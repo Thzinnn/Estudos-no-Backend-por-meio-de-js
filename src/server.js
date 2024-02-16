@@ -1,26 +1,17 @@
 import express from 'express'
 import {PORT,HOST} from './config.js'
+import userRouter from './routes/userRouter.js'
+import produtoRouter from './routes/produtoRouter.js'
+import logger from './middleware/logger.js'
 const app = express()
 
-const endereco = {
-    rua: 'Rua latissimo dorso',
-    numero: 0
-}
+app.use(express.json())
+app.use(logger)
 
-const user = {
-    name: 'Thiago',
-    idade: '17',
-    email: 'thiagoil2006@gmail.com',
-    cidade: 'Caraguatatuba',
-    aluno: true,
-    end: endereco,
-    familia: {
-        mae: 'Maria',
-        pai: 'Paulo',
-        filha: 'Clarisse'
-    },
-    pets: [{nome: 'Marley', raca: 'Labrador'}, 'Gato', 'Peixe']
-}
+app.use('/user', userRouter)
+app.use('/produto', produtoRouter)
+
+
 
 app.get('/', (req, res) => {
   res.json(user)
