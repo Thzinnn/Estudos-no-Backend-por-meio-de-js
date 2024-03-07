@@ -24,23 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura da tabela `product`
 --
 
-CREATE TABLE `produto` (
+CREATE TABLE `product` (
   `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `name` varchar(250) NOT NULL,
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `photo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `produto`
---
-
-INSERT INTO `produto` (`id`, `name`, `price`, `quantity`, `photo`) VALUES
-(1, 'Arroz', 20, 10, 'https://propao.agilecdn.com.br/2315_1.jpg?v=27-246342608');
 
 -- --------------------------------------------------------
 
@@ -50,8 +43,8 @@ INSERT INTO `produto` (`id`, `name`, `price`, `quantity`, `photo`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
   `avatar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -60,16 +53,16 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `avatar`) VALUES
-(1, 'Thiago Inácio lima', 'thiagoil2006@gmail.com', 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/04/04/1596394453-shrekfierce.jpg');
+(1, 'Renan Cavichi', 'renancavichi@gmail.com', 'https://avatars.githubusercontent.com/u/4259630?v=4');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `produto`
+-- Índices para tabela `product`
 --
-ALTER TABLE `produto`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -84,16 +77,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT de tabela `produto`
+-- AUTO_INCREMENT de tabela `product`
 --
-ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

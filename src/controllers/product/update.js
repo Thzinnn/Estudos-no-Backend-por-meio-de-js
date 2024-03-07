@@ -1,13 +1,13 @@
-import userModel from "../../models/userModel.js"
+import productModel from "../../models/productModel.js"
 
 const update = async (req, res) => {
     try{
         const id = +req.params.id
-        const user = req.body
-        const result = await userModel.edit({id, ...user})
+        const product = req.body
+        const result = await productModel.edit({id, ...product})
         res.json({
-            success: `Usuário ${id} editado com sucesso!`,
-            user: result
+            success: `Produto ${id} editado com sucesso!`,
+            product: result
         })
     } catch (error) {
         console.log(error)
