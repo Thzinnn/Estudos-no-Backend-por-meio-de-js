@@ -8,6 +8,7 @@ import logger from './middlewares/logger.js'
 const app = express()
 
 app.use(logger)
+app.use(cors())
 app.use(express.json())
 
 app.use('/user', userRouter)
