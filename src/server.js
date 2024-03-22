@@ -9,7 +9,11 @@ import cors from 'cors'
 const app = express()
 
 app.use(logger)
-app.use(cors())
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:8001', 'http://meusite.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(express.json())
 
 app.use('/user', userRouter)

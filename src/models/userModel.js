@@ -34,7 +34,9 @@ const validateUserToCreate = (user) => {
 }
 
 const getAll = async () => {
-    return await prisma.user.findMany()
+    return await prisma.user.findMany({
+        orderBy: { id : 'asc'}
+    })
 }
 
 const getById = async (id) => {
