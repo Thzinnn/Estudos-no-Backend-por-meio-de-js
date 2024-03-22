@@ -10,7 +10,7 @@ const app = express()
 
 app.use(logger)
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:8001', 'http://meusite.com'],
+  origin: ['http://localhost:3000', 'http://localhost:8081', 'http://meusite.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }))
