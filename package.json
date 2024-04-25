@@ -20,7 +20,7 @@
     "jwt",
     "mvc"
   ],
-  "author": "Renan Cavichi",
+  "author": "Thiago",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.3",
