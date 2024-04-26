@@ -32,6 +32,16 @@ const login = async (req, res) => {
 
         const token = jwt.sign({ id: userFound.id, name: userFound.name}, SECRET_KEY, { expires: '3m'})
 
+        res.cookie('token', token, { httpOnly: true, sameSite: "None", secure: true, maxAge: 60 * 60 * 1000 })
+
+        let date = new Date()
+        date.setHours()
+        await sessionModel.create({
+            userId: userFound.id,
+            token,
+            createdAt: new Date()
+        })
+
        res.json({message: "Login"})
     } catch (error) {
         console.log(error)

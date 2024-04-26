@@ -6,9 +6,12 @@ import productRouter from './routers/productRouter.js'
 import authRouter from './routers/authRouter.js'
 import logger from './middlewares/logger.js'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 
+
+app.use(cookieParser())
 app.use(logger)
 app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:8081', 'http://meusite.com'],

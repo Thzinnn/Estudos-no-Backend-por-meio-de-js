@@ -1,8 +1,12 @@
+import sessionModel from "../../models/sessionModel"
 
 
 const logout = async (req, res) => {
     try{
-       res.json({message: "logout"})
+        res.clearCookie('token', { httpOnly: true, sameSite: 'None', secure: true})
+
+        await sessionModel.remove(req.userLogged.id,req.userLogged.token)
+
     } catch (error) {
         console.log(error)
         return res.status(500).json({

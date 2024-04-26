@@ -2,8 +2,15 @@ import userModel from "../../models/userModel.js"
 
 const remove = async (req, res) => {
     try{
-        const id = req.params.id
-        const result = await userModel.remove(+id)
+
+        const id = +req.params.id
+        
+        if(id !== req.userLogged.id){
+            return res.status(401).json({
+                error: `não autorizado a remover outro usuário`
+            })
+        }
+
         res.json({
             success: `Usuário ${id} apagado com sucesso!`,
             user: result
